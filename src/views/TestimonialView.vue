@@ -1,20 +1,20 @@
 <template>
-    <div class="container">
-        <div class="row">
-            <h2 class="diplay-2">Testimonal Page</h2>
-        </div>
+    <div class="body 100vh">
     </div>
-
 </template>
 
-<script>
-    export default {
-        name:"ReachPage"
-    }
-</script>
+  
+  <script>
 
-<style scoped>
-.container{
-  padding-top: 3%;
-}
+  </script>
+  
+  <style scoped>
+  .body {
+      background-color: #000000;
+      color: #ffffff;
+      overflow: hidden;
+      cursor: hidden;
+  }
 </style>
+
+  

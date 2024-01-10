@@ -1,12 +1,13 @@
 <template>
   <body class="home bg-dark vh-100">
+    <!-- Landing Page -->
     <div class="container vh-100">
       <!-- First row with two columns -->
       <div class="row w-100 bg-light h-50">
         <div class="col-6 bg-secondary d-flex align-items-center justify-content-center">
           <h2>{{ carlData.occupation.split(' ')[0] }}</h2>
         </div>
-        <div class="col-6 d-flex bg-dark align-items-center justify-content-center">
+        <div class="col-6 d-flex bg-light align-items-center justify-content-center">
           <h2>{{ carlData.occupation.split(' ')[1] }}</h2>
         </div>
         <!-- Second row -->
@@ -16,6 +17,10 @@
           <h1 class="respond-font text-primary">{{ carlData.name }}</h1>
         </div>
       </div>
+    </div>
+    <!--  -->
+    <div class="continer bg-light vh-100">
+          <h2>{{ carlData.occupation.split(' ')[1] }}</h2>
     </div>
   </body>
 </template>
@@ -30,7 +35,6 @@ export default {
         age: 24,
         city: "Cape Town",
         occupation: "Aspiring WebDeveloper"
-
       },
       jsonData: "",
     };
@@ -39,7 +43,23 @@ export default {
     saveToJson() {
       this.jsonData = JSON.stringify(this.carlData, null, 2);
     },
+    fetchData() {
+      fetch('https://api.example.com/data') 
+        .then(response => response.json())
+        .then(data => {
+          this.carlData = {
+            name: data.name,
+            age: data.age,
+            city: data.city,
+            occupation: data.occupation
+          };
+        })
+        .catch(error => console.error('Error fetching data:', error));
+    },
   },
+  mounted() {
+    this.fetchData();
+  }
 };
 </script>
 
@@ -47,7 +67,6 @@ export default {
   @media (max-width: 300px) {
     .respond-font {
       font-size: 1.5em;
-      
     }
   }
   .respond-font {
