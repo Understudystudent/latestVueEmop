@@ -5,26 +5,22 @@
       <!-- First row with two columns -->
       <div class="row w-100 bg-light h-50">
         <div class="col-6 bg-secondary d-flex align-items-center justify-content-center">
-          <h2>{{ carlData.occupation.split(' ')[0] }}</h2>
+          <h2 style="font-size: 2em; text-transform: uppercase;">{{ carlData.occupation.split(' ')[0] }}</h2>
         </div>
         <div class="col-6 d-flex bg-light align-items-center justify-content-center">
-          <h2>{{ carlData.occupation.split(' ')[1] }}</h2>
+          <h2 style="font-size: 2em; text-transform: uppercase;">{{ carlData.occupation.split(' ')[1] }}</h2>
         </div>
-        <!-- Second row -->
       </div>
+
+      <!-- Second row -->
       <div class="row w-100 bg-primary h-50">
         <div class="col-12 d-flex align-items-center justify-content-center">
           <h1 class="respond-font text-primary">{{ carlData.name }}</h1>
         </div>
       </div>
     </div>
-    <!--  -->
-    <div class="continer bg-light vh-100">
-          <h2>{{ carlData.occupation.split(' ')[1] }}</h2>
-    </div>
   </body>
 </template>
-
 
 <script>
 export default {
@@ -44,8 +40,13 @@ export default {
       this.jsonData = JSON.stringify(this.carlData, null, 2);
     },
     fetchData() {
-      fetch('https://api.example.com/data') 
-        .then(response => response.json())
+      fetch('https://understudystudent.github.io/vueEOMPdata/data/')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          return response.json();
+        })
         .then(data => {
           this.carlData = {
             name: data.name,
@@ -64,12 +65,22 @@ export default {
 </script>
 
 <style scoped>
-  @media (max-width: 300px) {
-    .respond-font {
-      font-size: 1.5em;
-    }
-  }
+@media (max-width: 300px) {
   .respond-font {
-    -webkit-text-stroke: 1px white !important;
+    font-size: 1.5em;
+    text-transform: uppercase;
   }
+}
+
+.respond-font {
+  -webkit-text-stroke: 1px white !important;
+  font-size: 12vw;
+  text-transform: uppercase;
+  height: max-content;
+}
+
+::selection {
+  background-color: black;
+}
 </style>
+
