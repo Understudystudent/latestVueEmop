@@ -1,34 +1,33 @@
 <template>
-  <div class="background container-fliud vh-100 d-flex align-items-center justify-content-center">
+  <div class="background container-fluid vh-100 d-flex align-items-center justify-content-center">
     <h1 class="title display-1 fw-bolder">About Me</h1>
     <div ref="circle" class="circle"></div>
+    <div class="row" v-if="aboutME">
+      <p class="lead" v-for="about in aboutME" :key="about">{{ about }}</p>
+    </div>
   </div>
-  <div class="continer bg-secondary vh-100">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam tempore cum quasi nihil molestias exercitationem, eius provident quaerat sit incidunt. Unde autem ratione harum magnam maxime fugiat aspernatur praesentium dolore!</div>
 </template>
 
 <script>
+import { computed, onMounted } from 'vue';
+import { useStore } from 'vuex';
+
 export default {
-  data(){
-    return {
-      value: 0
-    }
-  },
-  mounted() {
-    // let section = document.querySelector('section');
-    let circle = this.$refs.circle;
+  setup() {
+    const store = useStore();
+    const aboutME = computed(() => store.state.about);
 
-
-    document.addEventListener('scroll', () => {
-      // let value = window.scrollY;
-      this.value += window.scrollY;
-      console.log(this.value)
-      // section.style.clipPath = `circle(${value * 3}px at left center)`;
-      circle.style['padding'] = `${this.value}px`;
+    onMounted(() => {
+      store.dispatch('fetchAbout');
     });
-  }
-};
 
+    return {
+      aboutME,
+    };
+  },
+};
 </script>
+
 
 <style scoped>
 * {

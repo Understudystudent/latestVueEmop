@@ -1,46 +1,40 @@
 <template>
-    <div class="container">
-      <div class="row">
-        <h2 class="display-2">Resume</h2>
-        <div>
-          <h3>{{ jobTitle }}</h3>
-          <div>
-            <!--  Education Section -->
-            <h4>Education</h4>
-            <ul>
-              <li v-for="edu in education" :key="edu.id">
-                <p>{{ edu.degree }} - {{ edu.school }}, {{ edu.year }}</p>
-              </li>
-            </ul>          
-          </div>
-        </div>
+  <div class="container">
+    <div class="row">
+      <h2 class="display-2">Resume</h2>
+    </div>
+    <div class="row" v-if="jobTitle">
+      <p class="lead" v-for="job in jobTitle" :key="job.title">{{ job.title }}</p>
+    </div>
+    <div class="row" v-if="skills">
+      <h3 class="display-3">Skills</h3>
+      <div v-for="skill in skills" :key="skill.title">
+        <h4>{{ skill.title }}</h4>
+        <p>{{ skill.experience }}</p>
       </div>
     </div>
-  </template>
-  
-  <script>
-  import { mapState, mapActions } from 'vuex';
-  
-  export default {
-    name: 'ResumePage',
-    computed: {
-      ...mapState(['Jobtitle', 'about', 'education', 'skills', 'testimonials', 'projects']),
-      jobTitle() {
-        return this.Jobtitle;
-      },
+  </div>
+</template>
+
+<script>
+export default {
+  computed: {
+    jobTitle() {
+      return this.$store.state.jobTitle;
     },
-    methods: {
-      ...mapActions(['fetchJobTitle']),
-    },
-    created() {
-      this.fetchJobTitle();
-    },
-  };
-  </script>
-  
-  <style scoped>
-  .container {
-    padding-top: 3%;
+    skills() {
+      return this.$store.state.skills;
+    }
+  },
+  mounted() {
+    this.$store.dispatch('fetchJobTitle');
+    this.$store.dispatch('fetchSkills');
   }
-  </style>
-  
+}
+</script>
+
+<style scoped>
+.container {
+  padding-top: 3%;
+}
+</style>

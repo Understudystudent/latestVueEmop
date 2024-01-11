@@ -1,131 +1,123 @@
 <template>
-  <div>
-    <div class="header" :style="{ fontSize: '10vw', paddingTop: '5%' }" ref="header"></div>
-    <div>
-      <div v-for="(card, index) in cards" :key="index" class="card">{{ card }}</div>
-    </div>
-    <!-- <div class="footer">
-      <a href="https://github.com/yourgithubusername" target="_blank">
-        <i class="bi bi-github" style="margin-right: 0.5rem;"></i>
-      </a>
-      <a href="https://linkedin.com/in/yourlinkedinusername" target="_blank">
-        <i class="bi bi-linkedin" style="margin-right: 0.5rem;"></i>
-      </a>
-    </div> -->
+  <div class="black-background">
+    <div class="header" :style="{ fontSize: '10vw', paddingTop: '5%' }" ref="header">{{ typewriterDisplay }}</div>
+    <section id="Contact" class="container-fluid form_layout">
+        <div class="container my-5">
+            <div class="row">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-10">
+                    <div class="row">
+                        <!-- Left Side Contact -->
+                        <div class="col-md-6 colmn1">
+                            <h3 class="heading my-5">Have an awesome idea? Let's bring it to life.</h3>
+                            <!-- contact form -->
+                            <div class="form">
+                                <form @submit.prevent="submitForm">
+                                    <div class="form-group mb-4">
+                                        <input v-model="formData.firstname" type="text" class="form-control"
+                                            placeholder="Your name?" required>
+                                    </div>
+                                    <div class="form-group mb-4">
+                                        <input v-model="formData.email" type="email" class="form-control"
+                                            placeholder="Your email?" required>
+                                    </div>
+                                    <div class="form-group mb-4">
+                                        <input v-model="formData.subject" type="text" class="form-control"
+                                            placeholder="Your Subject" required>
+                                    </div>
+                                    <div class="form-group mb-4">
+                                        <textarea v-model="formData.message" class="form-control" placeholder="Your message"
+                                            required></textarea>
+                                    </div>
+                                    <button
+                                        class="mt-4 d-flex justify-content-center align-items-center btn btn-secondary">Send
+                                        it!</button>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- Right Side Contact -->
+                        <div class="col-md-6 colmn2 text-right align-self-end">
+                            <h2 class="heading text-center my-5"> Find Me.</h2>
+                            <div class="row d-flex flex-column align-items-center justify-content-center">
+                                <div class="col">
+                                    <p>Contact Details:</p>
+                                </div>
+                                <div class="col">
+                                    <p><a :href="'mailto:' + formData.email">{{ formData.email }}</a></p>
+                                    <p>{{ formData.phone }}</p>
+                                </div>
+                                <div class="col">
+                                    <h2 class="text-center mt-2">Social Links.</h2>
+                                    <p><a :href="socialLinks.github" target="_blank"><i class="bi bi-github m-2"></i>
+                                            Github</a></p>
+                                    <p><a :href="socialLinks.linkedin" target="_blank"><i class="bi bi-linkedin m-2"></i>
+                                            LinkedIn</a></p>
+                                    <p><a :href="socialLinks.facebook" target="_blank"><i class="bi bi-facebook"></i>
+                                            Facebook</a></p>
+                                    <p><i class="bi bi-globe-europe-africa"></i> Location: {{ location }}</p>
+                                </div>
+                            </div>
+                        </div>
 
-    <!-- Circles mouse -->
-    <div v-for="(circle, index) in circles" :key="index" class="circle" :style="{ left: circle.x - 12 + 'px', top: circle.y - 12 + 'px', backgroundColor: circle.color, transform: 'scale(' + circle.scale + ')' }"></div>
+                    </div>
+                </div>
+                <div class="col-lg-1 colmn1"></div>
+            </div>
+        </div>
+    </section>
   </div>
-</template>
 
+</template>
+  
 <script>
 export default {
-  data() {
-    return {
-      cards: ["Looking for your next Developer", "card 2"],
-      coords: { x: 0, y: 0 },
-      circles: [],
-      colors: [
-        "#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e",
-        "#ec805d", "#e36e5c", "#df685c", "#d5585c", "#d1525c",
-        "#c5415d", "#c03b5d", "#b22c5e", "#ac265e", "#9c155f",
-        "#950f5f", "#830060", "#7c0060", "#680060", "#60005f",
-        "#48005f", "#3d005e"
-      ],
-      typewriterText: "Let's Connect",
-    };
-  },
-  mounted() {
-    this.setupCircles();
-    window.addEventListener("mousemove", this.handleMouseMove);
-    this.animateCircles();
-
-    // Start the typewriter effect
-    this.typeWriter();
-  },
-  methods: {
-    setupCircles() {
-      this.circles = this.colors.map((color, index) => ({
-        x: 0,
-        y: 0,
-        color,
-        scale: (this.colors.length - index) / this.colors.length,
-      }));
+    data() {
+        return {
+            formData: {
+                firstname: '',
+                email: '',
+                subject: '',
+                message: '',
+            },
+            socialLinks: {
+                github: 'https://github.com/Understudystudent',
+                linkedin: 'https://www.linkedin.com/in/carl-james-3ab3ba276/',
+                facebook: 'https://www.facebook.com/carl.james.5439087/',
+            },
+            location: 'Newfields, Cape town, South Africa',
+        };
     },
-    handleMouseMove(e) {
-      this.coords.x = e.clientX;
-      this.coords.y = e.clientY;
+    methods: {
+        async submitForm() {
+            try {
+                // Simulate sending data to a server
+                const response = await this.$axios.post('/api/contact', this.formData);
+
+                // Assuming the server responds with a success message
+                console.log('Form submitted successfully:', response.data);
+
+                // Clear the form
+                this.clearForm();
+            } catch (error) {
+                console.error('Error submitting form:', error.message);
+                // Handle errors and provide feedback to the user
+            }
+        },
+        clearForm() {
+            // Clear form fields
+            this.formData.firstname = '';
+            this.formData.email = '';
+            this.formData.subject = '';
+            this.formData.message = '';
+        },
     },
-    animateCircles() {
-      let x = this.coords.x;
-      let y = this.coords.y;
-
-      this.circles.forEach((circle, index) => {
-        circle.x = x;
-        circle.y = y;
-
-        const nextCircle = this.circles[index + 1] || this.circles[0];
-        x += (nextCircle.x - x) * 0.3;
-        y += (nextCircle.y - y) * 0.3;
-      });
-
-      requestAnimationFrame(this.animateCircles);
-    },
-    typeWriter() {
-      let i = 0;
-      const txt = this.typewriterText;
-      const speed = 50;
-
-      const typeWriterInterval = setInterval(() => {
-        if (i < txt.length) {
-          this.$refs.header.innerHTML += txt.charAt(i);
-          i++;
-        } else {
-          clearInterval(typeWriterInterval);
-        }
-      }, speed);
-    },
-  },
 };
 </script>
   
-  <style scoped>
-  body {
-      font-family: 'Courier New', Courier, monospace;
-  }
-  
-  .header,
-  .footer {
-      background-color: black;
-      color: white;
-      height: 250px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-  }
-  
-  .card {
-      width: 100vw;
-      height: 100vh;
-      background-color: var(--card-bg-color);
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: sticky;
-      top: 0;
-  }
-  
-  .circle {
-    height: 24px;
-    width: 24px;
-    border-radius: 24px;
-    background-color: black;
-    position: fixed;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    z-index: 99999999;
-  }
-  </style>
+<style>
+.black-background {
+  background-color: black;
+  color: white; 
+}
+</style>
   
