@@ -83,8 +83,8 @@ export default createStore({
     async fetchTestimonials(context) {
       try {
         let res = await fetch(dataURL);
-        let { Testimonials } = await res.json();
-        context.commit('setTestimonials', Testimonials);
+        let { testimonials } = await res.json();
+        context.commit('setTestimonials', testimonials);
       } catch (e) {
         alert("Failed to fetch Testimonials");
       }

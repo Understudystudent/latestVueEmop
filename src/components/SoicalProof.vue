@@ -10,13 +10,14 @@
       </div>
     </div>
   </div>
+  
 </template>
 
 <script>
 export default {
   computed: {
     testimonials() {
-      return this.$store.state.Testimonials;
+      return this.$store.state.testimonials;
     }
   },
   mounted() {
