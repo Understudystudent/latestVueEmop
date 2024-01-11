@@ -1,4 +1,5 @@
 <template>
+  <SpinnerComp :loading="loading"/>
   <div>
     <transition name="fade" mode="out-in">
       <router-view />
@@ -12,13 +13,27 @@
 <script>
 import FooterView from './components/FooterView.vue';
 import NavBar from './components/NavBar.vue';
+import SpinnerComp from './components/Spinner.vue';
 
 
 export default {
+  data(){
+    return {
+      loading: false
+    }
+  },
   components: {
     NavBar,
     FooterView,
+    SpinnerComp
   },
+  mounted(){
+    window.onload = () => {
+      setTimeout(() => {
+        this.loading = true;
+      }, 2000);
+    }
+  }
 };
 </script>
 
