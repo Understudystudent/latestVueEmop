@@ -1,6 +1,6 @@
 <template>
-    <div class="home">
-        <h1 class=" testimonials">Testimonials</h1>
+    <div class="home black-background mb-5">
+        <h1 class=" testimonials my-5">Testimonials</h1>
         <SocialCard />
     </div>
 </template>
@@ -16,9 +16,12 @@ export default {
 @media only screen and (max-width: 800px) {
     .testimonials {
         font-size: 3rem;
+        background-color: black;
+
     }
 }
-h1{
-    margin-top: 10%;
+.black-background {
+  background-color: black;
+  color: white; 
 }
 </style>

@@ -3,8 +3,8 @@ const dataURL = "https://understudystudent.github.io/vueEOMPdata/data/"
 
 export default createStore({
   state: {
-    Skills: null,
-    Education: null,
+    skills: null,
+    education: null,
     experience: null,
     projects: null,
     testimonials: null,
@@ -12,11 +12,11 @@ export default createStore({
   },
   getters: {},
   mutations: {
-    setSkills(state, Skills) {
-      state.Skills = Skills
+    setSkills(state, skills) {
+      state.skills = skills
     },
-    setEducation(state, Education) {
-      state.Education = Education
+    setEducation(state, education) {
+      state.education = education
     },
     setExperience(state, experience) {
       state.experience = experience
@@ -35,8 +35,8 @@ export default createStore({
     async fetchSkills(context) {
       try {
         let res = await fetch(dataURL);
-        let { Skills } = await res.json();
-        context.commit('setSkills', Skills);
+        let { skills } = await res.json();
+        context.commit('setSkills', skills);
       } catch (e) {
         alert("Failed to fetch Skills");
       }
@@ -47,8 +47,8 @@ export default createStore({
     async fetchEducation(context) {
       try {
         let res = await fetch(dataURL);
-        let { Education } = await res.json();
-        context.commit('setEducation', Education);
+        let { education } = await res.json();
+        context.commit('setEducation', education);
       } catch (e) {
         alert("Failed to fetch Education");
       }
