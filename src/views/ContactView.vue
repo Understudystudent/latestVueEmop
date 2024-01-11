@@ -1,7 +1,7 @@
 <template>
-  <div class="black-background">
-    <div class="header" :style="{ fontSize: '10vw', paddingTop: '5%' }" ref="header">{{ typewriterDisplay }}</div>
-    <section id="Contact" class="container-fluid form_layout">
+  <div class="black-background vh-100">
+    <header class="header text-white "> Contact me</header>
+    <section id="Contact" class="container-fluid form_layout  black-background">
         <div class="container my-5">
             <div class="row">
                 <div class="col-lg-1"></div>
@@ -9,7 +9,7 @@
                     <div class="row">
                         <!-- Left Side Contact -->
                         <div class="col-md-6 colmn1">
-                            <h3 class="heading my-5">Have an awesome idea? Let's bring it to life.</h3>
+                            <h3 class="heading my-5">Have an awesome idea?</h3>
                             <!-- contact form -->
                             <div class="form">
                                 <form @submit.prevent="submitForm">
@@ -115,9 +115,14 @@ export default {
 </script>
   
 <style>
+.header {
+    padding-top: 5%;
+    font-size: 2rem; 
+}
 .black-background {
-  background-color: black;
-  color: white; 
+    background-color: black;
+    color: white;
 }
 </style>
+
   

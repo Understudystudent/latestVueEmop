@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container black-background ">
     <div class="row justify-content-center">
       <div class="card" v-for="(testimonial, index) in testimonials" :key="index" style="width: 25rem;">
         <img :src="testimonial.profile" class="card-img-top" :alt="`${testimonial.name} ${testimonial.surname}`" loading="lazy">
@@ -10,7 +10,6 @@
       </div>
     </div>
   </div>
-  
 </template>
 
 <script>
@@ -34,5 +33,12 @@ export default {
 
 .card-img-top {
   aspect-ratio: 1/1;
+  height: 100%; /* Set a fixed height */
+  object-fit: cover; /* Maintain aspect ratio and cover the entire container */
+}
+
+.black-background {
+  background-color: black;
+  color: white; 
 }
 </style>
