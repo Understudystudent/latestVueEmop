@@ -18,4 +18,7 @@ export default {
         font-size: 3rem;
     }
 }
+h1{
+    margin-top: 10%;
+}
 </style>
