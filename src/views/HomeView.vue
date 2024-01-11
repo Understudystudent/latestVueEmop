@@ -5,17 +5,22 @@
       <!-- First row with two columns -->
       <div class="row w-100 bg-light h-50">
         <div class="col-6 bg-secondary d-flex align-items-center justify-content-center">
-          <h2 style="font-size: 2em; text-transform: uppercase;">{{ carlData.occupation.split(' ')[0] }}</h2>
+          <h2 style="font-size: 2em; text-transform: uppercase;" class="hover-left">
+            Aspiring
+          </h2>
         </div>
         <div class="col-6 d-flex bg-light align-items-center justify-content-center">
-          <h2 style="font-size: 2em; text-transform: uppercase;">{{ carlData.occupation.split(' ')[1] }}</h2>
+          <h2 style="font-size: 2em; text-transform: uppercase;">
+            WebDeveloper
+          </h2>
         </div>
       </div>
 
       <!-- Second row -->
       <div class="row w-100 bg-primary h-50">
         <div class="col-12 d-flex align-items-center justify-content-center">
-          <h1 class="respond-font text-primary">{{ carlData.name }}</h1>
+          <h1 class="respond-font text-primary">Carl James</h1>
+          <p></p>
         </div>
       </div>
     </div>
@@ -24,47 +29,16 @@
 
 <script>
 export default {
-  data() {
-    return {
-      carlData: {
-        name: "Carl James",
-        age: 24,
-        city: "Cape Town",
-        occupation: "Aspiring WebDeveloper"
-      },
-      jsonData: "",
-    };
-  },
-  methods: {
-    saveToJson() {
-      this.jsonData = JSON.stringify(this.carlData, null, 2);
-    },
-    fetchData() {
-      fetch('https://understudystudent.github.io/vueEOMPdata/data/')
-        .then(response => {
-          if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-          }
-          return response.json();
-        })
-        .then(data => {
-          this.carlData = {
-            name: data.name,
-            age: data.age,
-            city: data.city,
-            occupation: data.occupation
-          };
-        })
-        .catch(error => console.error('Error fetching data:', error));
-    },
-  },
-  mounted() {
-    this.fetchData();
-  }
-};
+  
+}
 </script>
 
 <style scoped>
+.hover-left:hover {
+  transform: translateX(-20px); /* Move 20 pixels to the left on hover */
+  transition: transform 0.8s ease; /* Adjust the duration to make it slower */
+}
+
 @media (max-width: 300px) {
   .respond-font {
     font-size: 1.5em;
@@ -77,10 +51,14 @@ export default {
   font-size: 12vw;
   text-transform: uppercase;
   height: max-content;
+  transition: transform 0.5s ease; /* Add transition property */
+}
+
+.respond-font:hover {
+  transform: translateX(20px); /* Move 20 pixels to the right on hover */
 }
 
 ::selection {
   background-color: black;
 }
 </style>
-

@@ -1,14 +1,12 @@
 <template>
   <div>
-    <main class="bg-dark">
+    <transition name="fade" mode="out-in">
       <router-view />
-    </main>
+    </transition>
     
     <NavBar />
     <FooterView />
-    <AnimatedCircles />
   </div>
-
 </template>
 
 <script>
@@ -25,3 +23,15 @@ export default {
 </script>
 
 <style src="@/assets/css/style.css"></style>
+
+<style>
+ @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@800&display=swap');
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s ease-out;
+}
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+}
+</style>

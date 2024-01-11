@@ -6,6 +6,7 @@ import store from './store'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap'
 import 'bootstrap-icons/font/bootstrap-icons.css';
+// import { gsap } from 'gsap'
 
 
 createApp(App).use(store).use(router).mount('#app')
