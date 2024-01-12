@@ -1,64 +1,64 @@
 <template>
-  <div class="container vh-100">
+  <div class=" black-background mt-5">
     <div class="row">
-      <h2 class="display-2">Resume</h2>
+      <h2 class="display-2 mt-3">Resume</h2>
     </div>
     <div class="container">
-  <div class="row">
-    <!-- Left Column -->
-    <div class="col-md-6">
-      <h2>Left Column</h2>
-      <p>This is the content of the left column.</p>
-    </div>
 
-    <!-- Right Column -->
-    <div class="col-md-6">
-      <h2>Right Column</h2>
-      <p>This is the content of the right column.</p>
-    </div>
-  </div>
-</div>
-
-
-    <div class="logos">
-      <div class="logos-slider">
-        <img src="../assets/svg/javascript.svg" />
-        <img src="../assets/svg/html5-2.svg" />
-        <img src="../assets/svg/css-3.svg" />
-        <img src="../assets/svg/github.svg" />
-        <img src="../assets/svg/bootstrap.svg" />
-        <img src="../assets/svg/figma-logo.svg" />
-        <img src="../assets/svg/git.svg" />
-        <img src="../assets/svg/javascript.svg" />
-        <img src="../assets/svg/html5-2.svg" />
-        <img src="../assets/svg/css-3.svg" />
-        <img src="../assets/svg/github.svg" />
-        <img src="../assets/svg/bootstrap.svg" />
-        <img src="../assets/svg/figma-logo.svg" />
-        <img src="../assets/svg/git.svg" />
+      <div class="row">
+        <!-- First Column -->
+        <h1 class="text-white">Work History</h1>
+        <div class="card-body col-md-6 black-background" v-for="(education, index) in education" :key="index">
+          <h5 class="card-title">
+            <h2>{{ education.place }}</h2>
+            <p>{{ education.year }}</p>
+            <p>{{ education.description }}</p>
+          </h5>
+        </div>
+        <div class="logos col-md-6">
+          <h1 class="text-white">Skills</h1>
+        <div class="logos-slider">
+          <img src="../assets/svg/javascript.svg" />
+          <img src="../assets/svg/html5-2.svg" />
+          <img src="../assets/svg/css-3.svg" />
+          <img src="../assets/svg/github.svg" />
+          <img src="../assets/svg/bootstrap.svg" />
+          <img src="../assets/svg/figma-logo.svg" />
+          <img src="../assets/svg/git.svg" />
+          <img src="../assets/svg/javascript.svg" />
+          <img src="../assets/svg/html5-2.svg" />
+          <img src="../assets/svg/css-3.svg" />
+          <img src="../assets/svg/github.svg" />
+          <img src="../assets/svg/bootstrap.svg" />
+          <img src="../assets/svg/figma-logo.svg" />
+          <img src="../assets/svg/git.svg" />
+        </div>
+      </div>
       </div>
     </div>
 
   </div>
 </template>
 
-
-
 <script>
 export default {
   computed: {
-    jobTitle() {
-      return this.$store.state.jobTitle;
+    education() {
+      return this.$store.state.education;
     },
     skills() {
       return this.$store.state.skills;
     }
   },
   mounted() {
-    this.$store.dispatch('fetchJobTitle');
+    this.$store.dispatch('fetchEducation');
     this.$store.dispatch('fetchSkills');
-    let copy = this.$el.querySelector(".logos-slider").cloneNode(true);
-    this.$el.querySelector(".logos").appendChild(copy);
+    let logosSlider = this.$el.querySelector(".logos-slider");
+
+    if (logosSlider) {
+      let copy = logosSlider.cloneNode(true);
+      this.$el.querySelector(".logos").appendChild(copy);
+    }
   },
 }
 </script>
@@ -68,20 +68,15 @@ export default {
   padding-top: 3%;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  background: #f2f2f2;
+  background: black;
 }
 
 @keyframes slide {
   from {
-    transform: translateX(0);
+    transform: translateX(0%);
   }
+
   to {
     transform: translateX(-100%);
   }
@@ -89,7 +84,7 @@ body {
 
 .logos {
   overflow: hidden;
-  background: white;
+  background: black;
   white-space: nowrap;
   position: relative;
 }
@@ -98,7 +93,7 @@ body {
 .logos:after {
   position: absolute;
   top: 0;
-  width: 250px;
+  width: 100vw;
   height: 100%;
   z-index: 2;
 }
@@ -126,4 +121,13 @@ body {
   height: 50px;
   margin: 0 2rem;
 }
+
+.black-background {
+  background-color: black;
+  color: white; 
+}
+
+.text-white:hover {
+    text-decoration: underline blue;
+  }
 </style>

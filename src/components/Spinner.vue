@@ -1,6 +1,6 @@
 <template>
     <div class="position-fixed bg-black 100vh" :class="{ doneLoading: loading }">
-        <div class="content">
+        <div class="content 50vh 50vw">
         <div class="texts">
             <p>Carl James</p>
             <p>Carl James</p>
@@ -75,8 +75,8 @@ body {
 
 .content {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    /* top: 500px;
+    left: 500px; */
     transform: translate(-50%, -50%);
 }
 
