@@ -1,6 +1,6 @@
 <template>
-  <div class="container-fluid vh-100 mainpage">
-    <div class="container push-down">
+  <div class="container-fluid vh-100 mainpage" id="aboutPage" >
+    <div class="container  mt-5 push-down" >
       <div class="row">
         <!-- First Column for Image -->
         <div class="col-md-4">
@@ -51,9 +51,13 @@ export default {
 .push-down {
   margin-top: 5rem;
   background-color: #e2e3e5;
+}.mainpage {
+  background-color: #e2e3e5;
+}
+#aboutPage{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.container,
-.mainpage {
-  background-color: #e2e3e5;
-}</style>
+</style>

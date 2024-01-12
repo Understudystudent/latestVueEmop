@@ -1,129 +1,153 @@
 <template>
-  <div class="black-background vh-100">
-    <header class="header text-white "> Contact me</header>
-    <section id="Contact" class="container-fluid form_layout  black-background">
-        <div class="container my-5">
+    <section id="Contact" class="container-fluid form-layout text-white 100vh">
+      <div class="container my-5">
+        <h2 class="section-heading text-center text-black">Contact Section</h2>
+        <h3 class="d-flex justify-content-center align-items-center mb-2">
+          Contact Me
+        </h3>
+        <div class="row">
+          <!-- Left Side Form -->
+          <div class="col-lg-1"></div>
+          <div class="col-lg-10">
             <div class="row">
-                <div class="col-lg-1"></div>
-                <div class="col-lg-10">
-                    <div class="row">
-                        <!-- Left Side Contact -->
-                        <div class="col-md-6 colmn1">
-                            <h3 class="heading my-5">Have an awesome idea?</h3>
-                            <!-- contact form -->
-                            <div class="form">
-                                <form @submit.prevent="submitForm">
-                                    <div class="form-group mb-4">
-                                        <input v-model="formData.firstname" type="text" class="form-control"
-                                            placeholder="Your name?" required>
-                                    </div>
-                                    <div class="form-group mb-4">
-                                        <input v-model="formData.email" type="email" class="form-control"
-                                            placeholder="Your email?" required>
-                                    </div>
-                                    <div class="form-group mb-4">
-                                        <input v-model="formData.subject" type="text" class="form-control"
-                                            placeholder="Your Subject" required>
-                                    </div>
-                                    <div class="form-group mb-4">
-                                        <textarea v-model="formData.message" class="form-control" placeholder="Your message"
-                                            required></textarea>
-                                    </div>
-                                    <button class="mt-4 d-flex justify-content-center align-items-center btn btn-secondary"
-        style="background-color: red; color: white;">Send it!</button>
-
-                                </form>
-                            </div>
-                        </div>
-                        <!-- Right Side Contact -->
-                        <div class="col-md-6 colmn2 text-right align-self-end">
-                            <h2 class="heading text-center my-5"> Find Me:</h2>
-                            <div class="row d-flex flex-column align-items-center justify-content-center">
-                                <div class="col">
-                                    <p>Contact Details:</p>
-                                </div>
-                                <div class="col">
-                                    <p><a :href="'mailto:' + formData.email">{{ formData.email }}</a></p>
-                                    <p>069 5055 903</p>
-                                    <p>carlmjames2@gmail.com</p>
-                                </div>
-                                <div class="col">
-                                    <h2 class="text-center mt-2">Social Links.</h2>
-                                    <p><a :href="socialLinks.github" target="_blank"><i class="bi bi-github m-2"></i>
-                                            Github</a></p>
-                                    <p><a :href="socialLinks.linkedin" target="_blank"><i class="bi bi-linkedin m-2"></i>
-                                            LinkedIn</a></p>
-                                    <p><a :href="socialLinks.facebook" target="_blank"><i class="bi bi-facebook"></i>
-                                            Facebook</a></p>
-                                    <p><i class="bi bi-globe-europe-africa"></i> Location: {{ location }}</p>
-                                </div>
-                            </div>
-                        </div>
-
+              <!-- Left Side Contact -->
+              <div class="col-md-6 colmn1">
+                <h3 class="heading my-5">Have an awesome idea?</h3>
+                <!-- contact form -->
+                <div class="form">
+                  <form
+                    action="https://formspree.io/f/xpzgnpee"
+                    method="POST"
+                  >
+                    <div class="form-group mb-4">
+                      <input
+                        type="text"
+                        id="firstname"
+                        name="Firstname"
+                        class="form-control"
+                        placeholder="Your name?"
+                        required
+                      />
                     </div>
+                    <div class="form-group mb-4">
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        class="form-control"
+                        placeholder="Your email?"
+                        required
+                      />
+                    </div>
+                    <div class="form-group mb-4">
+                      <input
+                        type="text"
+                        id="subject"
+                        name="subject"
+                        class="form-control"
+                        placeholder="Your Subject"
+                        required
+                      />
+                    </div>
+                    <div class="form-group mb-4">
+                      <textarea
+                        id="message"
+                        class="form-control"
+                        name="message"
+                        placeholder="Your message"
+                        required
+                      ></textarea>
+                    </div>
+                    <button
+                      class="mt-4 d-flex justify-content-center align-items-center btn btn-danger custom-red-btn"
+                    >
+                      Send it!
+                    </button>
+                  </form>
+                </div   >
+              </div>
+              <!-- Right Side Contact -->
+              <div class="col-md-6 colmn2">
+                <!-- Contact Details -->
+                <h2 class="heading text-center my-5"> Find Me.</h2>
+                <div class="row d-flex flex-column align-items-center justify-content-center">
+                  <div class="col">
+                    <p>Contact Details:</p>
+                  </div>
+                  <div class="col">
+                    <p>
+                      <a href="mailto:carlmjames2@gmail.com"
+                        >carlmjames2@gmail.com</a
+                      >
+                    </p>
+                    <p>+27 69 505 5903</p>
+                  </div>
+                  <div class="col">
+                    <h2 class="text-center mt-2">Social Links.</h2>
+                    <p>
+                      <a
+                        href="https://github.com/Understudystudent"
+                        target="_blank"
+                      >
+                        <i class="bi bi-github m-2" aria-hidden="true"></i>
+                        Github
+                      </a>
+                    </p>
+                    <p>
+                      <a
+                        href="https://www.linkedin.com/in/carl-james-3ab3ba276/"
+                        target="_blank"
+                      >
+                        <i class="bi bi-linkedin m-2" aria-hidden="true"></i>
+                        LinkedIn
+                      </a>
+                    </p>
+                    <p>
+                      <a
+                        href="https://www.facebook.com/carl.james.5439087/"
+                        target="_blank"
+                      >
+                        <i class="bi bi-facebook" aria-hidden="true"></i>
+                        Facebook
+                      </a>
+                    </p>
+                    <p>
+                      <i class="bi bi-globe-europe-africa" aria-hidden="true"></i>
+                      Location: Newfields, Cape town, South Africa
+                    </p>
+                  </div>
                 </div>
-                <div class="col-lg-1 colmn1"></div>
+              </div>
             </div>
+          </div>
+          <div class="col-lg-1 colmn1"></div>
         </div>
+      </div>
     </section>
-  </div>
-
-</template>
+  </template>
   
-<script>
-export default {
-    data() {
-        return {
-            formData: {
-                firstname: 'Carl',
-                email: '',
-                subject: '',
-                message: '',
-            },
-            socialLinks: {
-                github: 'https://github.com/Understudystudent',
-                linkedin: 'https://www.linkedin.com/in/carl-james-3ab3ba276/',
-                facebook: 'https://www.facebook.com/carl.james.5439087/',
-            },
-            location: 'Newfields, Cape town, South Africa',
-        };
-    },
-    methods: {
-        async submitForm() {
-            try {
-                // Simulate sending data to a server
-                const response = await this.$axios.post('/api/contact', this.formData);
-
-                // Assuming the server responds with a success message
-                console.log('Form submitted successfully:', response.data);
-
-                // Clear the form
-                this.clearForm();
-            } catch (error) {
-                console.error('Error submitting form:', error.message);
-                // Handle errors and provide feedback to the user
-            }
-        },
-        clearForm() {
-            // Clear form fields
-            this.formData.firstname = '';
-            this.formData.email = '';
-            this.formData.subject = '';
-            this.formData.message = '';
-        },
-    },
-};
-</script>
+  <script>
+  </script>
   
-<style>
-.header {
+  <style>
+  
+  .header {
     padding-top: 5%;
-    font-size: 2rem; 
-}
-.black-background {
+    font-size: 2rem;
+  }
+  
+  .black-background {
     background-color: black;
     color: white;
-}
-</style>
-
+  }
+  
+  #Contact {
+    background-color: black;
+  }
+  
+  .custom-red-btn {
+    background-color: red;
+  }
+  
+  </style>
   
