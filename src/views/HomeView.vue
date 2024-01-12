@@ -50,7 +50,7 @@ export default {};
 }
 
 .img-hover:hover {
-  transform: scale(1.1); /* You can adjust the scale factor as needed */
+  transform: scale(1.1);
 }
 
 @media (max-width: 300px) {
