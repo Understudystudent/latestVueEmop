@@ -48,12 +48,16 @@ export default {
 </script>
 
 <style scoped>
+
 .push-down {
   margin-top: 5rem;
   background-color: #e2e3e5;
-}.mainpage {
+}
+
+.mainpage {
   background-color: #e2e3e5;
 }
+
 #aboutPage{
   display: flex;
   justify-content: center;
