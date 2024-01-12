@@ -90,6 +90,7 @@ export default createStore({
       }
     },
 
+    
     // Job Title
 
     async fetchJobTitle(context) {
