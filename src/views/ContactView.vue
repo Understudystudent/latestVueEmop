@@ -29,22 +29,23 @@
                                         <textarea v-model="formData.message" class="form-control" placeholder="Your message"
                                             required></textarea>
                                     </div>
-                                    <button
-                                        class="mt-4 d-flex justify-content-center align-items-center btn btn-secondary">Send
-                                        it!</button>
+                                    <button class="mt-4 d-flex justify-content-center align-items-center btn btn-secondary"
+        style="background-color: red; color: white;">Send it!</button>
+
                                 </form>
                             </div>
                         </div>
                         <!-- Right Side Contact -->
                         <div class="col-md-6 colmn2 text-right align-self-end">
-                            <h2 class="heading text-center my-5"> Find Me.</h2>
+                            <h2 class="heading text-center my-5"> Find Me:</h2>
                             <div class="row d-flex flex-column align-items-center justify-content-center">
                                 <div class="col">
                                     <p>Contact Details:</p>
                                 </div>
                                 <div class="col">
                                     <p><a :href="'mailto:' + formData.email">{{ formData.email }}</a></p>
-                                    <p>{{ formData.phone }}</p>
+                                    <p>069 5055 903</p>
+                                    <p>carlmjames2@gmail.com</p>
                                 </div>
                                 <div class="col">
                                     <h2 class="text-center mt-2">Social Links.</h2>

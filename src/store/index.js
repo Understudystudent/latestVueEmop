@@ -1,5 +1,5 @@
 import { createStore } from 'vuex'
-const dataURL = "https://understudystudent.github.io/vueEOMPdata/data/"
+const url = "https://understudystudent.github.io/vueEOMPdata/data/"
 
 export default createStore({
   state: {
@@ -34,7 +34,7 @@ export default createStore({
   actions: {
     async fetchSkills(context) {
       try {
-        let res = await fetch(dataURL);
+        let res = await fetch(url);
         let { skills } = await res.json();
         context.commit('setSkills', skills);
       } catch (e) {
@@ -46,7 +46,7 @@ export default createStore({
 
     async fetchEducation(context) {
       try {
-        let res = await fetch(dataURL);
+        let res = await fetch(url);
         let { education } = await res.json();
         context.commit('setEducation', education);
       } catch (e) {
@@ -58,7 +58,7 @@ export default createStore({
 
     async fetchExperience(context) {
       try {
-        let res = await fetch(dataURL);
+        let res = await fetch(url);
         let { experience } = await res.json();
         context.commit('setExperience', experience);
       } catch (e) {
@@ -70,7 +70,7 @@ export default createStore({
 
     async fetchProjects(context) {
       try {
-        let res = await fetch(dataURL);
+        let res = await fetch(url);
         let { projects } = await res.json();
         context.commit('setProjects', projects);
       } catch (e) {
@@ -82,7 +82,7 @@ export default createStore({
 
     async fetchTestimonials(context) {
       try {
-        let res = await fetch(dataURL);
+        let res = await fetch(url);
         let { testimonials } = await res.json();
         context.commit('setTestimonials', testimonials);
       } catch (e) {
@@ -94,7 +94,7 @@ export default createStore({
 
     async fetchJobTitle(context) {
       try {
-        let res = await fetch(dataURL);
+        let res = await fetch(url);
         let { jobTitle } = await res.json();
         context.commit('setJobTitle', jobTitle);
       } catch (e) {
