@@ -4,7 +4,6 @@
       <h2 class="display-2 mt-3">Resume</h2>
     </div>
     <div class="container">
-
       <div class="row">
         <!-- First Column -->
         <h1 class="text-white">Work History</h1>
