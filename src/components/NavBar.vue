@@ -3,7 +3,7 @@
       <nav class="navbar  navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container-fluid">
           <!-- Use router-link for the navbar-brand to redirect to the home page -->
-          <router-link to="/" class="navbar-brand fs-4" style="text-decoration: none; color: black;">&#169;</router-link>        
+          <router-link to="/" class="navbar-brand fs-4" style="text-decoration: none; color: black;">&#169;Code by Carl</router-link>        
           <!-- Single Toggle Button -->
           <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

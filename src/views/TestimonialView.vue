@@ -16,13 +16,13 @@ export default {
 @media only screen and (max-width: 800px) {
     .testimonials {
         font-size: 3rem;
-        background-color: black;
+        background-color:  #e2e3e5;
 
     }
 }
 .black-background {
-  background-color: black;
-  color: white; 
+  background-color:  #e2e3e5;
+  color: black; 
 }
 
 .home{
