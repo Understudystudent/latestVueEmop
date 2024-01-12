@@ -1,6 +1,6 @@
 <template>
-    <div class="home black-background mb-5">
-        <h1 class=" testimonials my-5">Testimonials</h1>
+    <div class="home black-background">
+        <h1 class=" testimonials">Testimonials</h1>
         <SocialCard />
     </div>
 </template>
@@ -23,5 +23,9 @@ export default {
 .black-background {
   background-color: black;
   color: white; 
+}
+
+.home{
+    padding-top:5%
 }
 </style>

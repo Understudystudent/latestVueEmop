@@ -3,10 +3,24 @@
     <div class="row">
       <h2 class="display-2">Resume</h2>
     </div>
-    <div class="row" v-if="jobTitle">
-      <p class="lead" v-for="job in jobTitle" :key="job.title">{{ job.title }}</p>
+    <div class="container">
+  <div class="row">
+    <!-- Left Column -->
+    <div class="col-md-6">
+      <h2>Left Column</h2>
+      <p>This is the content of the left column.</p>
     </div>
-    <div class="logos vw-100">
+
+    <!-- Right Column -->
+    <div class="col-md-6">
+      <h2>Right Column</h2>
+      <p>This is the content of the right column.</p>
+    </div>
+  </div>
+</div>
+
+
+    <div class="logos">
       <div class="logos-slider">
         <img src="../assets/svg/javascript.svg" />
         <img src="../assets/svg/html5-2.svg" />
@@ -22,13 +36,6 @@
         <img src="../assets/svg/bootstrap.svg" />
         <img src="../assets/svg/figma-logo.svg" />
         <img src="../assets/svg/git.svg" />
-      </div>
-    </div>
-    <div class="row " v-if="skills">
-      <h3 class="display-3">Skills</h3>
-      <div v-for="skill in skills" :key="skill.title">
-        <h4>{{ skill.title }}</h4>
-        <!-- <p>{{ skill.experience }}</p> -->
       </div>
     </div>
 
@@ -93,7 +100,6 @@ body {
   top: 0;
   width: 250px;
   height: 100%;
-  content: "";
   z-index: 2;
 }
 
